@@ -1,0 +1,311 @@
+\documentclass{beamer}
+\usetheme{Madrid} % You can change this to your preferred theme
+
+%for diagrams
+\usepackage{tikz-cd}
+
+%for notes
+\usepackage{pgfpages}
+%\setbeameroption{hide notes} % Only slides
+\setbeameroption{show notes on second screen=right} 
+\setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}\usepackage{palatino}
+
+%highlight an item time to time
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title[Non-linear p-form gauge theories]{Non-linear p-form gauge theories and their deformations}
+\subtitle{Master Degree in Physics --- Final Dissertation}
+\author[Filippo Pesce]{Candidate: Filippo Pesce \\ \small Supervisors: Prof. Kurt Lechner, Prof. Dmitri Sorokin}
+\institute[UniPD]{
+  Dipartimento di Fisica e Astronomia ``Galileo Galilei'' \\
+  Università degli Studi di Padova
+}
+\date{Academic Year 2025/2026}
+
+\begin{document}
+
+% The Title Slide
+\begin{frame}
+  \titlepage
+
+    \note{Welcome to everyone, my thesis is entitled "Non-linear chiral p-form gauge theories and their deformations".\newline
+    This work was supervised by Professor Kurt Lechner and Professor Dmitri Sorokin.
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Studying QFTs via ``deformations''}
+
+    Starting from a ``\textit{seed}'' theory $\mathcal{L}_0$, one way to deform the theory is to add an integrated local operator
+        
+        \[S_0 = \int d^d x \, \mathcal{L}_0(x) \qquad \longrightarrow \qquad
+        S_\lambda = S_0 + \lambda \int d^d x \, \mathcal{O}(x).\]
+    We classify deformations of $d$-dimensional QFTs by the dimension $\Delta$ of the local operator $\mathcal{O}(x)$ as
+    \begin{itemize}
+        \item IRRELEVANT: If $\Delta>d$;
+        \item MARGINAL: If $\Delta=d$;
+        \item RELEVANT: If $\Delta<d$.
+    \end{itemize}
+
+    \note{I'd like to start with the general picture.\newline
+    One powerful way to study quantum field theories is to begin with a simple, well-understood theory, which we call a seed theory, and then deform it by adding a local operator.\newline
+    This deformation is controlled by a parameter, usually denoted by lambda (or gamma depending on the type of deformation).\newline
+    Now, depending on the scaling dimension of this operator, we classify deformations into three types: relevant, marginal, and irrelevant.
+    Relevant and marginal deformations are already well understood.
+    Irrelevant deformations, instead, are much more subtle because they drastically affect the ultraviolet behavior of the theory.
+    And this is precisely where things become interesting for us.}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{$\mathrm{T}\bar{\mathrm{T}}$-deformations}
+    
+    Rather surprisingly, the $\textrm{T}\bar{\textrm{T}}$-irrelevant deformation in $2d$ CFTs has gained much attention recently
+
+    \begin{block}{}
+        \[\textrm{T}\bar{\textrm{T}}^{(\lambda)}\equiv Det(T_{\mu\nu}^{(\lambda)}).\]
+    \end{block}
+    
+    
+    Why do we care about $\rm{T}\bar{T}$-deformations?   
+
+    \begin{itemize}
+        \item Universality.
+        \item Solvability;
+        \item Preserve many properties like supersymmetry and integrability.
+    \end{itemize}
+
+    \note{A remarkable example of an irrelevant deformation is the so-called T-bar-T deformation, originally defined in two-dimensional conformal field theories.\newline
+    Despite being irrelevant, this deformation has very special properties.\newline
+    It is defined in terms of the determinant of the stress-energy tensor.\newline
+    Now, why do we care about it?
+    There are three main reasons:\newline
+    First, it is universal, meaning it can be applied to a wide class of theories (basically any translational invariant 2d QFT).\newline
+    Second, it is solvable, which means that many quantities of the
+    deformed theory can be determined from the respective quantities
+    of the undeformed one.\newline
+    And third, it preserves important structures like integrability and supersymmetry. \newline
+    So it gives us a rare window into non-trivial QFT dynamics.}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Specialness of $\mathrm{T}\bar{\mathrm{T}}$-deformations}
+
+    The $\mathrm{T}\bar{\mathrm{T}}$ enjoys many important properties:
+
+    \begin{enumerate}
+    \item Factorization: Zamolodchikov has shown that the expectation values factorize
+    \[\langle\mathrm{T}\bar{\mathrm{T}}\rangle=\langle T\rangle\langle \bar{T}\rangle-\langle \Theta\rangle^2;\]
+    \item The cylinder energy levels of a $\mathrm{T}\bar{\mathrm{T}}$-deformed theory obey a partial differential equation
+    \[\partial_{\lambda}\mathcal{E}_{n}(R,\lambda)=\mathcal{E}_n(R,\lambda)\partial_{R}\mathcal{E}_{n}(R,\lambda)+\frac{1}{R}P_{n}(R)^{2};\]
+    \item The $\textrm{T}\bar{\textrm{T}}$-deformation of a free boson in $2d$ results in the Gauge-fixed Nambu-Goto Lagrangian.
+\end{enumerate}
+    \note{Let me highlight a few key properties that make T-bar-T so special. \newline
+    First, there is a remarkable factorization property discovered by Zamolodchikov: the expectation value of the $T\bar{T}$ operator factorizes into expectation values of the energy-momentum tensor itself: here $\Theta$ is just the trace of $T_{\mu\nu}$. \newline
+    Second, using the previous property one can show that the energy levels in some cases satisfy a non-linear differential equation, which can actually be solved to obtain the deformed energy spectrum in terms of the undeformed ones. Here for example we are considering a $2d$ CFT defined on a cylinder. \newline
+    Third, and maybe most strikingly, applying this deformation to a free boson leads to the Nambu–Goto action that appears in string theory. \newline
+    So, in a sense, this flow connects simple field theories to objects that resemble string dynamics. \newline
+    That’s already a hint that something deep is going on.}
+\end{frame}
+
+\begin{frame}
+\frametitle{$\mathrm{T}\bar{\mathrm{T}}$ in higher dimensions}
+    Considering the remarkable properties of $\textrm{T}\bar{\textrm{T}}$-deformations in $2d$, much effort has been devoted to explore their generalizations in higher dimensions.
+    \\~\\
+    Several results have been obtained in the context of non-linear electrodynamics:
+    \begin{enumerate}
+        \item The flow equation
+        \[\frac{\partial\mathcal{L}^{(\lambda)}}{\partial\lambda}=\frac{1}{d}\bigg(T^{(\lambda)\mu\nu}T_{\mu\nu}^{(\lambda)}-\frac{2}{d}(T^{(\lambda)\mu}_{\hspace{0.6cm}\mu})^2\bigg)\equiv\mathcal{O}_{T^2}^\lambda,\]
+        takes the free Maxwell theory in $4d$, $\mathcal{L}_0=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}$, to the Born-Infeld theory.
+        \item The flow equation
+        \[\frac{\partial\mathcal{L}^{(\gamma)}}{\partial\gamma}=\frac{1}{\sqrt{d}}\sqrt{T^{(\gamma)\mu\nu}T_{\mu\nu}^{(\gamma)}-\frac{1}{d}(T^{(\gamma)\mu}_{\hspace{0.5cm}\mu})^2}\equiv\mathcal{R}^{(\gamma)}\]
+        takes the free Maxwell Lagrangian in $4d$ into the ''\textit{ModMax}'' theory.
+    \end{enumerate}
+
+    \note{Given these remarkable properties in two dimensions, a natural question is whether similar constructions exist in higher dimensions.\newline
+    This turns out to be highly non-trivial, but some important progress has been made. Here I have presented some of these results.
+    In particular, in four dimensions, one can define analogous flow equations involving quadratic combinations of the stress-energy tensor.
+    These flows connect the free Maxwell theory to non-linear theories such as Born–Infeld and ModMax.\newline
+    We see that an interesting web of models related via $T\bar{T}$ flow start to appear.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{$\mathrm{T}\bar{\mathrm{T}}$ in higher dimensions}
+    %It was found that the following diagram commutes
+       %\[\begin{tikzcd}
+        %\mathcal{L}_{\text{Max}} 
+        %\arrow[r, "\mathcal{O}_{T^2}^{\lambda}"] 
+        %\arrow[d, "\mathcal{O}_{T^2}^{\gamma}"'] 
+        %& \mathcal{L}_{\text{BI}} 
+        %\arrow[d, "\mathcal{O}_{T^2}^{\lambda}"] \\
+        %\mathcal{L}_{\text{ModMax}} 
+        %\arrow[r, "\mathcal{O}_{T^2}^{\gamma}"] 
+        %& \mathcal{L}_{\gamma\text{BI}}
+    %\end{tikzcd}\]
+
+    It was found that in $d=4$ and $d=6$ all non-linear duality-invariant Lagrangians describing chiral fields can be expressed as a solution of the following $\rm{T}\bar{\rm{T}}$-like flow
+
+    \[\partial_\lambda\mathcal{L}=f(T_{\mu\nu}^{(\lambda)},\lambda),\]
+
+    where $f$ is a duality-invariant function of the deformed energy-momentum tensor $T_{\mu\nu}^{(\lambda)}$ and starting from a non-linear duality-invariant seed theory $\mathcal{L}|_{\lambda=0}$.
+
+    \begin{block}{}
+    \[\text{This classification is no longer true in $d=10$.}\]
+    \end{block}
+
+    \note{%Even more interestingly, these different flows are not independent.\newline
+    %In four dimensions, they fit into a commuting diagram of this type.
+    %This suggests that there is an underlying structure organizing these flows.\newline
+    The main result is that, in dimensions 2,4 and 6, it has been shown that all non-linear duality-invariant theories of chiral fields can be obtained as solutions of T-bar-T-like flow equations.
+    So in these dimensions, the flow essentially classifies all such theories.\newline
+    Unfortunately, in a recent work it has been shown with a counterexample that this beautiful property doesn't extend to $d=10$. In this work we have tried to get deeper into this problem: we have tried to solve the root-TTbar flow for these theories to see if some special classes of theories do satisfy that property.}
+\end{frame}
+
+\begin{frame}
+\frametitle{The open problem}
+
+    \vspace{0.5cm}
+
+    \begin{block}{}
+    Can we find a subclass of chiral $5$-form theories in $d=10$ that obeys the $\rm{T}\bar{\rm{T}}$-like flow equation?
+    \end{block}
+
+    \vspace{0.3cm}
+
+    To tackle this problem, the strategy has been:
+
+    \begin{enumerate}
+    \item Use INZ formulation;
+    \item Applying a perturbative technique for the solution of the flow equation;
+    \item Identify and study a particular invariant sector that arise naturally in $6d$;
+    \end{enumerate}
+
+    \note{
+    As we have said then, in dimensions 4 and 6, all duality-symmetric theories arise from T-bar-T-like flows.
+    In 10 dimensions, this is no longer true.\newline
+    So the question is:-
+    Can we at least identify a subclass of theories in 10 dimensions that still obey such a flow?\newline
+    Our strategy is the following:
+    First, we use the INZ formulation for the description of chiral four form theories in $10d$.
+    Second, we solve the flow equation perturbatively in the deformation parameter.
+    And third, we have tried to compute explicitly the expansion of the invariant sector already appearing in the $6d$ case.\newline
+    So let's start by first explaining briefly what is the INZ formulation.}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Chiral $5$-form theories}
+    \begin{itemize}
+        \item Self-duality condition: $F = F^\star$;
+        \item Hard to implement at the level of the action while preserving Lorentz invariance;
+    \end{itemize}
+
+    \vspace{0.4cm}
+
+    \begin{block}{}
+    INZ formulation introduces an auxiliary self-dual field $\Lambda$:
+    \begin{itemize}
+        \item Lorentz covariance is manifest;
+        \item Self-duality emerges from equations of motion.
+    \end{itemize}
+    \end{block}
+
+    \note{Chiral $p$-form theories by definition enjoy self-duality, namely the field strength tensor is self-dual. \newline
+    This duality condition is particularly subtle because is difficult to implement at the level of the action while preserving Lorentz invariance.
+    To deal with this, we use the INZ formulation, which introduces an auxiliary self-dual field.
+    The idea is that self-duality is not imposed directly, but instead emerges from the equations of motion.\newline
+    This INZ framework allows us to write a consistent covariant action and makes it suitable for studying deformations.}
+\end{frame}
+
+\begin{frame}
+\frametitle{Diving into the problem}
+    We've focused on the flow equation
+
+    \[
+    \partial_\gamma\mathcal{L} = \mathcal{R}^{(\gamma)}
+    \]
+
+    \vspace{0.3cm}
+
+    \begin{itemize}
+    \item Universal for ModMax theories in $d=2,4,6$;
+    \item Exact solution unknown in $d=10$.
+    \end{itemize}
+
+    \vspace{0.3cm}
+
+    \begin{block}{}
+    \[\text{Use a perturbative expansion in $\gamma$}\]
+    \end{block}
+
+    \note{Concretely, we did focus on a specific flow equation involving a non-linear operator that we previously shown in the first slides.
+    This equation is highly non-linear, and no exact solution is known in 10 dimensions.\newline
+    So instead of attacking it head-on, we take a perturbative approach.
+    We expand the Lagrangian in powers of the deformation parameter gamma and compute $\mathcal{R}^{(\gamma)}$ order by order, starting from the free theory.
+    }
+    
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Perturbative result}
+    In six dimensions
+    
+    \[\mathcal{L}^{(\gamma)}_{6d}=\mathcal{L}_0+\frac{1}{2\sqrt{6}}\tanh(\frac{\gamma}{2})\sqrt{I}.\]
+    
+    In ten dimensions instead we obtained, up to third order:
+
+    \begin{block}{}
+    \[
+    \mathcal{L}_{10d}^{(\gamma)}=\mathcal{L}_0+\frac{\sqrt{I_4}}{\sqrt{10}}\bigg(\frac{\gamma}{48}-\frac{1}{70}\frac{\gamma^3}{(4!)^3}\bigg)+\frac{1}{42\sqrt{40}}\frac{I_8^{(1)}}{I_4^{3/2}}\frac{\gamma^3}{(4!)^3}+\cdots.
+    \]
+    \end{block}
+
+    \vspace{0.3cm}
+
+    \begin{itemize}
+    \item Higher the order, the more invariants appear;
+    \item Only odd powers appear.
+
+    \end{itemize}
+
+    \vspace{0.3cm}
+
+    \begin{block}{}
+    Discrepancy between the $\sqrt{I_4}$ sector and the known $6d$ solution.
+    \end{block} 
+
+    \note{In six dimensions the flow equation has a well known solution given by the hyperbolic tangent of the deformation parameter times the square root of the unique Lorentz invariant that one can build out of $\Lambda$.
+    In ten dimensions what we find is that the Lagrangian admits an expansion in odd powers of gamma: first order, third order, and so on.
+    The form of the corrections is strongly constrained by certain Lorentz invariants built out of $\Lambda$, in particular $I_4$ and $I_8$.
+    We have then focused our attention on the $\sqrt{I_4}$ sector, since it is the ten dimensional counterpart of the six dimensional one shown above. As a result, we found a discrepancy between the two solutions. However this is not fully satisfactory since, up to this order, we are still able to rescale the expansion parameter... so the final verdict would require to go one order above.}    
+\end{frame}
+
+\begin{frame}
+\frametitle{Future directions}
+    From this point there are many other interesting directions yet to be studied:\newline
+
+    \begin{itemize}
+        \item Extend the expansion to the higher orders;      
+        \item Explore connections with duality and integrability in $d=10$;
+        \item Investigate whether alternative flow equations exist.
+    \end{itemize}
+
+    \note{I want to end up this dissertation by giving some possible directions for the future. As we said before, to really prove that there is a mismatch one has to explore new order of the expansion by using advanced calculus software like mathematica. Alternatively one could think of exploring the interconnections between integrability, supersymmetry and TTbar-like flows to see how the latter is constrained. Alternatively, one could focus on other flow equations to understand if other interesting operators arise in $10d$.}    
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\huge{Thank you for the attention!}
+\end{center}    
+\end{frame}
+
+\note{Thank you for the attention. I'll be happy to take questions.}
+
+
+\end{document}
