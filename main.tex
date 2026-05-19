@@ -3,6 +3,8 @@
 
 %for diagrams
 \usepackage{tikz-cd}
+%for \mathrm
+\usepackage{amsmath}
 
 %for notes
 \usepackage{pgfpages}
@@ -21,7 +23,9 @@
 
 \title[Non-linear p-form gauge theories]{Non-linear p-form gauge theories and their deformations}
 \subtitle{Master Degree in Physics --- Final Dissertation}
-\author[Filippo Pesce]{Candidate: Filippo Pesce \\ \small Supervisors: Prof. Kurt Lechner, Prof. Dmitri Sorokin}
+\author[Filippo Pesce]{%
+  \texorpdfstring{Candidate: Filippo Pesce \\ \small Supervisors: Prof. Kurt Lechner, Prof. Dmitri Sorokin}{Candidate: Filippo Pesce; Supervisors: Prof. Kurt Lechner, Prof. Dmitri Sorokin}%
+}
 \institute[UniPD]{
   Dipartimento di Fisica e Astronomia ``Galileo Galilei'' \\
   Università degli Studi di Padova
@@ -72,7 +76,7 @@
     \end{block}
     
     
-    Why do we care about $\rm{T}\bar{T}$-deformations?   
+    What is special about $\rm{T}\bar{T}$-deformations?   
 
     \begin{itemize}
         \item Universality.
@@ -116,8 +120,6 @@
 
 \begin{frame}
 \frametitle{$\mathrm{T}\bar{\mathrm{T}}$ in higher dimensions}
-    Considering the remarkable properties of $\textrm{T}\bar{\textrm{T}}$-deformations in $2d$, much effort has been devoted to explore their generalizations in higher dimensions.
-    \\~\\
     Several results have been obtained in the context of non-linear electrodynamics:
     \begin{enumerate}
         \item The flow equation
@@ -306,6 +308,45 @@
 \end{frame}
 
 \note{Thank you for the attention. I'll be happy to take questions.}
+
+% --- Backup slide(s) for Q\&A ---
+
+\begin{frame}
+\frametitle{Specialness of $\mathrm{T}\bar{\mathrm{T}}$-deformations}
+
+    The $\mathrm{T}\bar{\mathrm{T}}$ enjoys many important properties:
+
+    \begin{enumerate}
+    \item Factorization: Zamolodchikov has shown that the expectation values factorize
+    \[\langle\mathrm{T}\bar{\mathrm{T}}\rangle=\langle T\rangle\langle \bar{T}\rangle-\langle \Theta\rangle^2;\]
+    \item The cylinder energy levels of a $\mathrm{T}\bar{\mathrm{T}}$-deformed theory obey a partial differential equation
+    \[\partial_{\lambda}\mathcal{E}_{n}(R,\lambda)=\mathcal{E}_n(R,\lambda)\partial_{R}\mathcal{E}_{n}(R,\lambda)+\frac{1}{R}P_{n}(R)^{2};\]
+    \item The $\textrm{T}\bar{\textrm{T}}$-deformation of a free boson in $2d$ results in the Gauge-fixed Nambu-Goto Lagrangian.
+\end{enumerate}
+    \note{Let me highlight a few key properties that make T-bar-T so special. \newline
+    First, there is a remarkable factorization property discovered by Zamolodchikov: the expectation value of the $T\bar{T}$ operator factorizes into expectation values of the energy-momentum tensor itself: here $\Theta$ is just the trace of $T_{\mu\nu}$. \newline
+    Second, using the previous property one can show that the energy levels in some cases satisfy a non-linear differential equation, which can actually be solved to obtain the deformed energy spectrum in terms of the undeformed ones. Here for example we are considering a $2d$ CFT defined on a cylinder. \newline
+    Third, and maybe most strikingly, applying this deformation to a free boson leads to the Nambu–Goto action that appears in string theory. \newline
+    So, in a sense, this flow connects simple field theories to objects that resemble string dynamics. \newline
+    That’s already a hint that something deep is going on.}
+\end{frame}
+
+\begin{frame}
+\frametitle{Where do chiral $p$-forms appear?}
+
+\begin{itemize}
+    \item \textbf{Type IIB supergravity / string theory}: In the action of a bosonic fields of $D=10$ type IIB supergravity.
+    \item \textbf{D3-branes and AdS/CFT}: The self-dual $F_5$ flux sources the $AdS_5\times S_5$ background solution, leading to the holographic duality with $\mathcal{N}=4$ SYM.
+    \item \textbf{M-theory / M5-branes}: In the M-theory action of a $5$-brane propagating in $D=11$ supergravity background.
+\end{itemize}
+
+\note{Here I have put some exampples of where those chiral p-forms naturally arise.\newline
+In ten dimensions, chiral five-forms are not just a mathematical curiosity: the prime example is type IIB supergravity, where the RR five-form field strength is self-dual.
+This field also plays a central role in D3-brane physics and in the AdS/CFT correspondence, because its flux supports the AdS5 x S5 geometry.
+More generally, chiral p-forms appear on brane worldvolumes, e.g. the chiral 2-form living on M5-branes.}
+
+\end{frame}
+
 
 
 \end{document}
