@@ -11,7 +11,7 @@ This repository contains the **LaTeX/Beamer source and presentation slides** for
 
 The thesis investigates non-linear deformations of chiral \(p\)-form gauge theories and their relation to stress-tensor deformations of quantum and classical field theories.
 
-The main focus is on **chiral four-form gauge theories in ten dimensions**, with particular attention to the **PST** and **INZ** formulations and to $T\bar{T}$-like and Root-$T\bar{T}$ deformations.
+The main focus is on **chiral four-form gauge theories in ten dimensions**, with particular attention to the **PST** and **INZ** formulations and to $T\bar{T}$-like and $Root-T\bar{T}$ deformations.
 
 The presentation discusses:
 
